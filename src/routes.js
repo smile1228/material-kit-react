@@ -11,6 +11,12 @@ import Blog from './pages/Blog';
 import User from './pages/User';
 import NotFound from './pages/Page404';
 
+// 新增的管理界面
+import { Profile } from './pages/Profile';
+import WorkTimeAllocation from './pages/WorkTimeAllocation';
+import WorkTimeQuery from './pages/WorkTimeQuery';
+import WorkTimeOverview from './pages/WorkTimeOverview';
+
 // ----------------------------------------------------------------------
 
 export default function Router() {
@@ -23,7 +29,11 @@ export default function Router() {
         { path: 'app', element: <DashboardApp /> },
         { path: 'user', element: <User /> },
         { path: 'products', element: <Products /> },
-        { path: 'blog', element: <Blog /> }
+        { path: 'blog', element: <Blog /> },
+        { path: 'profile', element: <Profile /> },
+        { path: 'allocation', element: <WorkTimeAllocation /> },
+        { path: 'query', element: <WorkTimeQuery /> },
+        { path: 'overview', element: <WorkTimeOverview /> }
       ]
     },
     {
