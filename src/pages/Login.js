@@ -8,7 +8,8 @@ import AuthLayout from '../layouts/AuthLayout';
 import Page from '../components/Page';
 import { MHidden } from '../components/@material-extend';
 import { LoginForm } from '../components/authentication/login';
-import AuthSocial from '../components/authentication/AuthSocial';
+// 其它登陆方式，暂时不用
+// import AuthSocial from '../components/authentication/AuthSocial';
 
 // ----------------------------------------------------------------------
 
@@ -41,18 +42,18 @@ const ContentStyle = styled('div')(({ theme }) => ({
 
 export default function Login() {
   return (
-    <RootStyle title="Login | Minimal-UI">
+    <RootStyle title="Login | Agree">
       <AuthLayout>
-        Don’t have an account? &nbsp;
+        还没有账号? &nbsp;
         <Link underline="none" variant="subtitle2" component={RouterLink} to="/register">
-          Get started
+          注册
         </Link>
       </AuthLayout>
 
       <MHidden width="mdDown">
         <SectionStyle>
           <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 5 }}>
-            Hi, Welcome Back
+            你好，欢迎回来
           </Typography>
           <img src="/static/illustrations/illustration_login.png" alt="login" />
         </SectionStyle>
@@ -62,11 +63,11 @@ export default function Login() {
         <ContentStyle>
           <Stack sx={{ mb: 5 }}>
             <Typography variant="h4" gutterBottom>
-              Sign in to Minimal
+              Sign in to Cooperation
             </Typography>
-            <Typography sx={{ color: 'text.secondary' }}>Enter your details below.</Typography>
+            <Typography sx={{ color: 'text.secondary' }}>请在下面输入您的详细信息。</Typography>
           </Stack>
-          <AuthSocial />
+          {/* <AuthSocial /> */}
 
           <LoginForm />
 

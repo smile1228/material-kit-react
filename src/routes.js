@@ -12,10 +12,15 @@ import User from './pages/User';
 import NotFound from './pages/Page404';
 
 // 新增的管理界面
-import { Profile } from './pages/Profile';
 import WorkTimeAllocation from './pages/WorkTimeAllocation';
 import WorkTimeQuery from './pages/WorkTimeQuery';
 import WorkTimeOverview from './pages/WorkTimeOverview';
+import WeekReport from './pages/WeekReport';
+import PrejectProgess from './pages/PrejectProgess';
+import Sgin from './pages/Sgin';
+import Users from './pages/Users';
+import Tools from './pages/Tools';
+import Profile from './pages/Profile';
 
 // ----------------------------------------------------------------------
 
@@ -26,20 +31,26 @@ export default function Router() {
       element: <DashboardLayout />,
       children: [
         { element: <Navigate to="/dashboard/app" replace /> },
+        { path: 'allocation', element: <WorkTimeAllocation /> },
+        { path: 'query', element: <WorkTimeQuery /> },
+        { path: 'overview', element: <WorkTimeOverview /> },
+        { path: 'report', element: <WeekReport /> },
+        { path: 'progess', element: <PrejectProgess /> },
+        { path: 'sgin', element: <Sgin /> },
+        { path: 'users', element: <Users /> },
+        { path: 'profile', element: <Profile /> },
+        { path: 'tools', element: <Tools /> },
         { path: 'app', element: <DashboardApp /> },
         { path: 'user', element: <User /> },
         { path: 'products', element: <Products /> },
-        { path: 'blog', element: <Blog /> },
-        { path: 'profile', element: <Profile /> },
-        { path: 'allocation', element: <WorkTimeAllocation /> },
-        { path: 'query', element: <WorkTimeQuery /> },
-        { path: 'overview', element: <WorkTimeOverview /> }
+        { path: 'blog', element: <Blog /> }
       ]
     },
     {
       path: '/',
       element: <LogoOnlyLayout />,
       children: [
+        { element: <Navigate to="/login" replace /> },
         { path: 'login', element: <Login /> },
         { path: 'register', element: <Register /> },
         { path: '404', element: <NotFound /> },

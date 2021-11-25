@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Card } from '@mui/material';
 
-export default class Profile extends Component {
+export default class WeekReport extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -10,7 +10,7 @@ export default class Profile extends Component {
   render() {
     return (
       <div>
-        <Card>我是Profile</Card>
+        <Card>我是WeekReport</Card>
       </div>
     );
   }
