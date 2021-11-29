@@ -31,9 +31,9 @@ export default function Router() {
       element: <DashboardLayout />,
       children: [
         { element: <Navigate to="/dashboard/app" replace /> },
-        { path: 'allocation', element: <WorkTimeAllocation /> },
-        { path: 'query', element: <WorkTimeQuery /> },
-        { path: 'overview', element: <WorkTimeOverview /> },
+        { path: 'work/allocation', element: <WorkTimeAllocation /> },
+        { path: 'work/query', element: <WorkTimeQuery /> },
+        { path: 'work/overview', element: <WorkTimeOverview /> },
         { path: 'report', element: <WeekReport /> },
         { path: 'progess', element: <PrejectProgess /> },
         { path: 'sgin', element: <Sgin /> },

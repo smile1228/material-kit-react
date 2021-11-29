@@ -6,37 +6,40 @@ import fileTextFill from '@iconify/icons-eva/file-text-fill';
 import lockFill from '@iconify/icons-eva/lock-fill';
 import schedule from '@iconify/icons-ant-design/schedule-fill';
 import fundFilled from '@iconify/icons-ant-design/fund-filled';
-import calendar from '@iconify/icons-eva/calendar-fill';
-
-// 暂未使用的图标文件
 import shoppingBagFill from '@iconify/icons-eva/shopping-bag-fill';
 import personAddFill from '@iconify/icons-eva/person-add-fill';
 import alertTriangleFill from '@iconify/icons-eva/alert-triangle-fill';
+
+// 暂未使用的图标文件
+// import calendar from '@iconify/icons-eva/calendar-fill';
 
 const getIcon = (name) => <Icon icon={name} width={22} height={22} />;
 
 const sidebarConfig = [
   {
     title: '我的',
-    path: '/dashboard/profile',
+    path: 'profile',
     icon: getIcon(person)
   },
   {
     title: '工时',
-    // path: '/dashboard/app',
+    path: '/dashboard/work',
     icon: getIcon(pieChart2Fill),
     children: [
       {
         title: '工时分配',
-        path: '/dashboard/allocation'
+        icon: getIcon(pieChart2Fill),
+        path: '/dashboard/work/allocation'
       },
       {
         title: '工时查询',
-        path: '/dashboard/query'
+        icon: getIcon(pieChart2Fill),
+        path: '/dashboard/work/query'
       },
       {
         title: '工时概览',
-        path: '/dashboard/overview'
+        icon: getIcon(pieChart2Fill),
+        path: '/dashboard/work/overview'
       }
     ]
   },
