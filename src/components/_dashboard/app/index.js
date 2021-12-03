@@ -12,3 +12,6 @@ export { default as AppWebsiteVisits } from './AppWebsiteVisits';
 export { default as AppWeeklySales } from './AppWeeklySales';
 export { default as AgreeSignCard } from './AgreeSignCard';
 export { default as IpmpSignCard } from './IpmpSignCard';
+export { default as ProfileBacklog } from './ProfileBacklog';
+export { default as Allocation } from './Allocation';
+export { default as Clock } from './Clock';

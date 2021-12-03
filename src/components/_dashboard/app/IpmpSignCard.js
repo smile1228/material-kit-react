@@ -8,8 +8,12 @@ const RootStyle = styled(Card)(({ theme }) => ({
   boxShadow: 'none',
   textAlign: 'center',
   padding: theme.spacing(5, 0),
-  color: theme.palette.primary.darker,
-  backgroundColor: theme.palette.info.lighter
+  color: theme.palette.info.dark,
+  backgroundColor: theme.palette.info.lighter,
+  button: {
+    backgroundColor: alpha(theme.palette.primary.main, theme.palette.action.selectedOpacity),
+    color: theme.palette.info.dark
+  }
 }));
 
 const IconWrapperStyle = styled('div')(({ theme }) => ({

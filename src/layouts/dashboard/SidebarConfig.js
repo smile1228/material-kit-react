@@ -17,11 +17,6 @@ const getIcon = (name) => <Icon icon={name} width={22} height={22} />;
 
 const sidebarConfig = [
   {
-    title: '我的',
-    path: 'profile',
-    icon: getIcon(person)
-  },
-  {
     title: '工时',
     path: '/dashboard/work',
     icon: getIcon(pieChart2Fill),
@@ -42,6 +37,11 @@ const sidebarConfig = [
         path: '/dashboard/work/overview'
       }
     ]
+  },
+  {
+    title: 'Profile',
+    path: '/dashboard/profile',
+    icon: getIcon(person)
   },
   {
     title: '周报明细',

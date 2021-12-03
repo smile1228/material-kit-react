@@ -3,15 +3,16 @@ import { sample } from 'lodash';
 // utils
 import { mockImgAvatar } from '../utils/mockImages';
 
-// ----------------------------------------------------------------------
-
+// 用于生产虚拟用户数据
+// 指定语言
+faker.locale = 'zh_CN';
 const users = [...Array(24)].map((_, index) => ({
   id: faker.datatype.uuid(),
   avatarUrl: mockImgAvatar(index + 1),
-  name: faker.name.findName(),
-  company: faker.company.companyName(),
+  name: faker.fake(faker.name.findName()),
+  company: faker.internet.email(),
   isVerified: faker.datatype.boolean(),
-  status: sample(['active', 'banned']),
+  status: sample(['正常', '禁用']),
   role: sample([
     'Leader',
     'Hr Manager',
