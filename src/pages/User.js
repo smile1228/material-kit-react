@@ -59,7 +59,7 @@ function getComparator(order, orderBy) {
 }
 
 function applySortFilter(array, comparator, query) {
-  console.log("吾applySortFilter被调用啦！");
+  console.log('吾applySortFilter被调用啦！');
   const stabilizedThis = array.map((el, index) => [el, index]);
   stabilizedThis.sort((a, b) => {
     const order = comparator(a[0], b[0]);

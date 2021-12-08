@@ -7,6 +7,7 @@ import roundFilterList from '@iconify/icons-ic/round-filter-list';
 import { styled } from '@mui/material/styles';
 import {
   Box,
+  Button,
   Toolbar,
   Tooltip,
   IconButton,
@@ -57,13 +58,13 @@ export default function UserListToolbar({ numSelected, filterName, onFilterName 
     >
       {numSelected > 0 ? (
         <Typography component="div" variant="subtitle1">
-          {numSelected} selected
+          {numSelected} 选中
         </Typography>
       ) : (
         <SearchStyle
           value={filterName}
           onChange={onFilterName}
-          placeholder="Search user..."
+          placeholder="搜索用户..."
           startAdornment={
             <InputAdornment position="start">
               <Box component={Icon} icon={searchFill} sx={{ color: 'text.disabled' }} />
@@ -73,10 +74,10 @@ export default function UserListToolbar({ numSelected, filterName, onFilterName 
       )}
 
       {numSelected > 0 ? (
-        <Tooltip title="Delete">
-          <IconButton>
-            <Icon icon={trash2Fill} />
-          </IconButton>
+        <Tooltip title="批量分配">
+          <Button startIcon={<Icon icon="mdi:ballot-recount" />}>
+            <Typography>批量分配</Typography>
+          </Button>
         </Tooltip>
       ) : (
         <Tooltip title="Filter list">

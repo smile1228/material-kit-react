@@ -83,18 +83,13 @@ export default class WorkTimeAllocation extends Component {
       selected: [],
       orderBy: 'name',
       filterName: '',
-      rowsPerPage: 10
+      rowsPerPage: 10,
+      selectRowData: {}
     };
     this.emptyRows =
       this.state.page > 0
         ? Math.max(0, (1 + this.state.page) * this.state.rowsPerPage - USERLIST.length)
         : 0;
-    this.filteredUsers = applySortFilter(
-      USERLIST,
-      getComparator(this.state.order, this.state.orderBy),
-      this.state.filterName
-    );
-    this.isUserNotFound = this.filteredUsers.length === 0;
   }
 
   handleRequestSort = (event, property) => {
@@ -149,14 +144,17 @@ export default class WorkTimeAllocation extends Component {
     const {
       emptyRows,
       handleClick,
-      filteredUsers,
-      isUserNotFound,
       handleChangePage,
       handleRequestSort,
       handleFilterByName,
       handleSelectAllClick,
       handleChangeRowsPerPage
     } = this;
+    const filteredUsers = applySortFilter(
+      USERLIST,
+      getComparator(this.state.order, this.state.orderBy),
+      this.state.filterName
+    );
     return (
       <Page>
         <Container>
@@ -182,7 +180,6 @@ export default class WorkTimeAllocation extends Component {
                     {filteredUsers
                       .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                       .map((row) => {
-                        console.log("***");
                         const { id, name, role, status, company, avatarUrl, isVerified } = row;
                         const isItemSelected = selected.indexOf(name) !== -1;
                         return (
@@ -224,7 +221,13 @@ export default class WorkTimeAllocation extends Component {
                                 size="medium"
                                 aria-label="outlined button group"
                               >
-                                <Button>分配</Button>
+                                <Button
+                                  onClick={() => {
+                                    this.setState({ open: true, selectRowData: row });
+                                  }}
+                                >
+                                  分配
+                                </Button>
                                 <Button>查看</Button>
                               </ButtonGroup>
                             </TableCell>
@@ -239,7 +242,7 @@ export default class WorkTimeAllocation extends Component {
                       </TableRow>
                     )}
                   </TableBody>
-                  {isUserNotFound && (
+                  {filteredUsers.length === 0 && (
                     <TableBody>
                       <TableRow>
                         <TableCell align="center" colSpan={6} sx={{ py: 3 }}>
@@ -261,7 +264,13 @@ export default class WorkTimeAllocation extends Component {
               onRowsPerPageChange={handleChangeRowsPerPage}
             />
           </Card>
-          <Allocation open={open} />
+          <Allocation
+            open={open}
+            selectRowData={this.state.selectRowData}
+            openConer={() => {
+              this.setState({ open: false });
+            }}
+          />
         </Container>
       </Page>
     );

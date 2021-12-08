@@ -9,7 +9,7 @@ faker.locale = 'zh_CN';
 const users = [...Array(24)].map((_, index) => ({
   id: faker.datatype.uuid(),
   avatarUrl: mockImgAvatar(index + 1),
-  name: faker.fake(faker.name.findName()),
+  name: faker.name.lastName() + faker.name.firstName(),
   company: faker.internet.email(),
   isVerified: faker.datatype.boolean(),
   status: sample(['正常', '禁用']),
